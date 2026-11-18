@@ -1,0 +1,117 @@
+
+/* 网页整体设置 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #302044, #090914 75%);
+    color: white;
+    font-family: "Microsoft YaHei", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 主容器 */
+.container {
+    text-align: center;
+    padding: 30px;
+}
+
+/* 标题 */
+h1 {
+    color: #ff80ab;
+    font-size: 36px;
+    text-shadow: 0 0 20px #ff4081;
+}
+
+/* 提示文字 */
+p {
+    color: #d8c5e8;
+    font-size: 17px;
+}
+
+/* 输入框 */
+input {
+    width: 260px;
+    padding: 14px;
+    border: 1px solid #ff80ab;
+    border-radius: 30px;
+    background: #211a32;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+}
+
+/* 按钮 */
+button {
+    margin-top: 20px;
+    padding: 13px 35px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff4081, #ff80ab);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4081;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+@keyframes bloom {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}/* 粒子爱心动画 */
+.particle-heart {
+    position: absolute;
+    font-size: 18px;
+    pointer-events: none;
+    animation: heartFly 2s ease-out forwards;
+}
+
+@keyframes heartFly {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+        transform: translate(var(--x), var(--y)) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(
+            calc(var(--x) * 1.5),
+            calc(var(--y) * 1.5)
+        ) scale(0.3);
+    }
+}/* 巨大爱心动画画布 */
+#heartCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
